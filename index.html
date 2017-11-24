@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>TestRoom</title>
+	</head>
+	<body>
+		<canvas  id="canv" width="800" height="600" style="border: thin solid black"><canvas id="canv2"></canvas></canvas>
+		<img src="../test/test.png"  id="img"></img>
+		
+		<script src= "TGDPhysics.js"></script>
+		<script src="TGDCamera.js"></script>
+		<script type="text/javascript" src="TestRoom.js"></script>
+		<script type="text/javascript" src="TGDParser.js"></script>
+		<script>
+		var requestAnimationFrame = requestAnimationFrame || function(d){
+		setTimeout(d, 15)
+		}
+			var testRoom = new TestRoom("canv");
+			var testParser = new TGDParser();
+			var stage = [
+			"A", 
+			"A", 
+			"A A A"]
+var ts = 50;
+function addDroid(x, y){
+	testRoom.shapes.push(new Circle(x*ts, y*ts));
+}
+testParser.addToken("A", addDroid)
+	testParser.parseArr(stage)
+			requestAnimationFrame(function(){
+			testRoom.draw()
+			});
+		</script>
+	</body>
+</html>

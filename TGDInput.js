@@ -1,3 +1,7 @@
+//It is just a state machine
+//if yoy want to know, whether key A is pressed, just use
+//if(Input.A)...
+//pretty simple, pretty useful
 var Input = new TGDInput();
 
 function TGDInput(){

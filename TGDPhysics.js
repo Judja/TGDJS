@@ -2,8 +2,8 @@
 function Vector(x, y){
 	this.x = x;
 	this.y = y;
-	
 	this.set = function(x, y){
+
 		this.x = x;
 		this.y = y;
 	}

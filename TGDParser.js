@@ -1,4 +1,9 @@
-
+// creates Parser object
+// if you want to store levels or anything else as a planetext
+// you can use this to parse your text and create different objects, but you need to specify tokens, example:
+//parser.addToken("X", function(x, y){
+//	platforms.push(new Platform(x, y, 1, 1))
+//}) - Calls Platform constructor when finds 'X' in text
 function TGDParser(){
 	this.tokens = []
 	this.addToken = function(symb, react){

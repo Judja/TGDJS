@@ -13,7 +13,7 @@ function BasicCamera(){
 	this.focusPoint = new Vector(0, 0);
 	this.zoom = 1;
 	this.follow = null;
-	
+
 	//updates position
 	this.update = function(dt){
 		if(this.follow)
@@ -51,7 +51,7 @@ function createRectedCamera(x, y, w, h){
 	cam.dy = 0;
 	cam.ppx = 1;
 	cam.ppy = 1;
-	
+
 	//we change update function to implement behavior we need... I've forgotten how it works =)
 	cam.update = function(){
 		if(cam.follow){
@@ -86,7 +86,7 @@ function createRectedCamera(x, y, w, h){
 function createWorldRectedCamera(x, y, w, h){
 	var cam = createRectedCamera(x, y, w, h);
 	cam.displayHeight = 0;
-	//determining coofs for translating pixels to world coordinates 
+	//determining coofs for translating pixels to world coordinates
 	cam.configFrame = function(x, y, w, h, ww, hh){
 		cam.ppx = ww/w;
 		cam.ppy = hh/h;
@@ -99,7 +99,7 @@ function createWorldRectedCamera(x, y, w, h){
 		ctx.scale(1, -1)
 		ctx.translate(0, -cam.displayHeight)
 		ctx.scale(cam.ppx*cam.zoom, cam.ppy*cam.zoom);
-		ctx.translate(-cam.position.x+cam.focusPoint.x/cam.zoom/cam.ppx, -cam.position.y+cam.focusPoint.y/cam.zoom/cam.ppy)		
+		ctx.translate(-cam.position.x+cam.focusPoint.x/cam.zoom/cam.ppx, -cam.position.y+cam.focusPoint.y/cam.zoom/cam.ppy)
 	}
 	//transform pixels into gnomes
 	cam.toWorldX = function(X){

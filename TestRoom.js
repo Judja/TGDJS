@@ -10,11 +10,11 @@ function TestRoom(id){
 	this.display = document.getElementById(id);
 	this.context = this.display.getContext('2d');
 	this.camera = createRectedCamera(200, 200, 400, 200);
-		
+
 	this.draw = function(){
 	this.camera.setFollow(this.shapes[0]);
 	this.context.clearRect(0, 0, 800, 600);
-		
+
 		dt = Date.now() - lastFrame;
 	lastFrame = Date.now();
 	if(Date.now()-lastfps>1000){
@@ -41,11 +41,11 @@ function TestRoom(id){
 		this.context.lineTo(800, this.camera.focusPoint.y);
 		this.context.strokeRect(this.camera.focusRect.x, this.camera.focusRect.y, this.camera.focusRect.width, this.camera.focusRect.height);
 		this.context.stroke();
-		
 		requestAnimationFrame(function(){
+
 			testRoom.draw()
 		})
-		
+
 	}
 	this.draw2=function(){
 		testctx.save()
@@ -55,7 +55,7 @@ function TestRoom(id){
 		testctx.restore()
 
 		requestAnimationFrame(function(){
-			testRoom.draw2()	
+			testRoom.draw2()
 		})
 
 	}
@@ -70,7 +70,7 @@ this.position = new Vector(x||0, y||0);
 		ctx.scale(1, -1);
 		ctx.translate(0, -this.position.y*2-50)
 		ctx.drawImage(img, this.position.x, this.position.y, 50, 50)
-		
+
 		ctx.restore();
 	}
 }
